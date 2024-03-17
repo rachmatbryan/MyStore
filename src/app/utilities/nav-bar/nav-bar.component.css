@@ -1,0 +1,12 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: left;
+  background: #202020;
+  padding: 20px 200px 20px 200px;
+}
+
+a {
+  font-weight: bold;
+}
