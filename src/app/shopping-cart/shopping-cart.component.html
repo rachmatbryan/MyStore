@@ -1,1 +1,8 @@
-<p>shopping-cart works!</p>
+<h1>Products</h1>
+
+<div class="product-index">
+  <app-shopping-cart-post
+    *ngFor="let product of products"
+    [product]="product"
+  ></app-shopping-cart-post>
+</div>
