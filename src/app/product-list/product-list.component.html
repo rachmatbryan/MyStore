@@ -1,14 +1,8 @@
-<p>product</p>
-
-<!-- <ul *ngFor="let product of product">
-  <li>{{ product.id }}</li>
-  <li>{{ product.pname }}</li>
-  <li>{{ product.price }}</li>
-  <img src="{{ product.url }}" />
-  <li>{{ product.description }}</li>
-</ul> -->
-
-<app-product-post
-  *ngFor="let product of products"
-  [product]="product"
-></app-product-post>
+<h1 style="text-align: center">product</h1>
+<div>
+  <app-product-post
+    *ngFor="let product of products"
+    [product]="product"
+    (marked)="addToCart(product)"
+  ></app-product-post>
+</div>

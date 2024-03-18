@@ -9,4 +9,13 @@
 
 a {
   font-weight: bold;
+  color: gainsboro;
+  font-style: none;
+  text-decoration: none;
+}
+p {
+  font-weight: bold;
+  color: gainsboro;
+  font-style: none;
+  text-decoration: none;
 }

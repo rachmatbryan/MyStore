@@ -1,6 +1,13 @@
-<p>{{ product.id }}</p>
-<h1>{{ product.pname }}</h1>
-<li>{{ product.price }}</li>
 <img src="{{ product.url }}" />
-<p>{{ product.description }}</p>
-<button (click)="upvote()">Add to Cart</button>
+<div>
+  <h5>{{ product.pname }}</h5>
+  <p>
+    {{ product.description }}
+  </p>
+  <ul>
+    <li>Price: {{ product.price }}</li>
+  </ul>
+  <button class="btn btn-primary" (click)="marked.emit(product)">
+    Add to Cart
+  </button>
+</div>

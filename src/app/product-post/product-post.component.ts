@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../models/Product';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductPostComponent implements OnInit {
   @Input() product: Product;
+  @Output() marked = new EventEmitter();
 
   constructor() {
     this.product = {
@@ -21,8 +22,6 @@ export class ProductPostComponent implements OnInit {
       description: '',
     };
   }
-  upvote(): void {
-    console.log('xd');
-  }
+
   ngOnInit(): void {}
 }
