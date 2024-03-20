@@ -1,0 +1,69 @@
+.content {
+  display: flex;
+  justify-content: center; /* This will center the children (form and total) horizontally */
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* This will allow the form and total to stack on smaller screens */
+}
+
+.checkout-form {
+  margin: auto; /* This will center the form horizontally */
+
+  border-radius: 8px; /* Optional for aesthetics */
+  /* Add a max-width if you want to limit how wide the form can get, this is optional */
+  max-width: 500px; /* Or whatever maximum width you prefer */
+}
+
+/* Rest of your CSS */
+
+.total {
+  flex-basis: 100%; /* Makes sure that form and total price take full width on smaller screens */
+  max-width: 500px; /* Sets a max width for larger screens */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.input-group label {
+  font-weight: bold; /* Makes labels stand out */
+}
+
+.input-group input[type="text"] {
+  width: 100%; /* Makes input take the full width of its parent */
+  padding: 10px; /* More padding for better touch targets */
+}
+
+.btn-primary {
+  width: 100%; /* Aligns button width with inputs */
+  padding: 10px;
+  margin-top: 10px; /* Better padding for a larger click area */
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer; /* Indicates the button is clickable */
+  transition: background-color 0.3s ease; /* Smooth background transition for hover */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.total {
+  font-size: 1.5em;
+  text-align: right; /* Aligns price to the right */
+  margin-top: 0; /* Removes additional space on the top */
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .checkout-form,
+  .total {
+    flex-basis: auto; /* Allows the form and total to adjust their width automatically */
+  }
+}

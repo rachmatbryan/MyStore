@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../models/Product';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-shopping-cart-post',
@@ -12,8 +13,8 @@ import { CommonModule } from '@angular/common';
 export class ShoppingCartPostComponent implements OnInit {
   @Input() product: Product;
   @Output() marked = new EventEmitter();
-
-  constructor() {
+  selectedAmount: { [key: number]: number } = {};
+  constructor(private cartService: CartService) {
     this.product = {
       id: 1,
       pname: '',
@@ -23,5 +24,7 @@ export class ShoppingCartPostComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectedAmount = this.cartService.getAmount();
+  }
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { HeaderComponent } from './header/header.component';
 import { ProductPostComponent } from './product-post/product-post.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
@@ -16,7 +15,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     RouterOutlet,
     CheckoutComponent,
-    HeaderComponent,
     ProductPostComponent,
     ProductListComponent,
     OrderConfirmationComponent,
