@@ -6,5 +6,8 @@
     <p>Price: {{ product.price }}</p>
     <p>Amount: {{ selectedAmount[product.id] }}</p>
     <p>Total: ${{ product.price * selectedAmount[product.id] }}</p>
+    <button (click)="removeItem(product)" class="btn btn-primary">
+      Remove form cart
+    </button>
   </div>
 </div>

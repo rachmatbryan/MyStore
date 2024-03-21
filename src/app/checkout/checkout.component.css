@@ -1,0 +1,42 @@
+.success-container {
+  text-align: center; /* Center text */
+  padding: 50px; /* Add some padding around the content */
+  max-width: 600px; /* Maximum width of the container */
+  margin: 100px auto; /* Center the container vertically and horizontally */
+  border: 1px solid #ccc; /* A subtle border */
+  border-radius: 10px; /* Rounded corners for the border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* A light shadow to lift the container off the page */
+  background-color: #fff; /* A white background */
+}
+
+.success-container h1 {
+  color: #4caf50; /* A green color to signify success */
+  margin-bottom: 20px; /* Add some space below the header */
+}
+
+.success-container p {
+  font-size: 1.1em; /* Slightly larger font size for better readability */
+  margin-bottom: 15px; /* Space below each paragraph */
+}
+
+.success-container button {
+  background-color: #4caf50; /* Green background for the button */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding inside the button */
+  border: none; /* Remove the border */
+  border-radius: 5px; /* Slightly rounded corners for the button */
+  font-size: 1em; /* Set font size */
+  cursor: pointer; /* Change the cursor to signify it's clickable */
+  text-decoration: none; /* Remove underlines from the text */
+  display: inline-block; /* Allow margin to be applied properly */
+  margin-top: 20px; /* Space above the button */
+}
+
+.success-container button:hover {
+  background-color: #45a049; /* Darker green background on hover */
+}
+
+/* You can also add a global body rule if you want to set the font family for the whole page */
+body {
+  font-family: "Arial", sans-serif;
+}

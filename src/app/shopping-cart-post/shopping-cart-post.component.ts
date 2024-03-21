@@ -13,6 +13,10 @@ import { CartService } from '../service/cart.service';
 export class ShoppingCartPostComponent implements OnInit {
   @Input() product: Product;
   @Output() marked = new EventEmitter();
+  @Output() hideProduct = new EventEmitter();
+  @Output() hidePost: EventEmitter<Product> = new EventEmitter();
+  @Output() changePrice = new EventEmitter();
+  price: number = 0;
   selectedAmount: { [key: number]: number } = {};
   constructor(private cartService: CartService) {
     this.product = {
@@ -22,6 +26,13 @@ export class ShoppingCartPostComponent implements OnInit {
       url: '',
       description: '',
     };
+    this.price = this.cartService.getPrice();
+  }
+  removeItem(p: Product): void {
+    this.cartService.removeProductById(p.id);
+    this.marked.emit(p);
+    this.hideProduct.emit(p);
+    this.hidePost.emit(p);
   }
 
   ngOnInit(): void {

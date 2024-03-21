@@ -3,6 +3,7 @@ import { Product } from '../models/Product';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../service/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-post',
@@ -15,7 +16,7 @@ export class ProductPostComponent implements OnInit {
   @Input() product: Product;
   @Output() marked = new EventEmitter();
   @Input() amount: number = 0;
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router) {
     this.product = {
       id: 1,
       pname: '',
@@ -24,7 +25,11 @@ export class ProductPostComponent implements OnInit {
       description: '',
     };
   }
-
+  navigateToProduct(productId: number | undefined): void {
+    if (productId !== undefined) {
+      this.router.navigate(['/products', productId]);
+    }
+  }
   submitForm(): void {
     this.cartService.addAmount(this.amount, this.product);
   }

@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { Customer } from '../models/Customer';
 import { CartService } from '../service/cart.service';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-forms-post',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './forms-post.component.html',
   styleUrl: './forms-post.component.css',
 })
@@ -18,7 +19,7 @@ export class FormsPostComponent implements OnInit {
   price: number = 0;
   @Output() addCustomer: EventEmitter<Customer> = new EventEmitter();
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
   ngOnInit(): void {
     this.price = this.cartService.getPrice();
   }
@@ -34,5 +35,6 @@ export class FormsPostComponent implements OnInit {
     this.fullName = '';
     this.address = '';
     this.creditCard = '';
+    this.router.navigate(['/checkout']);
   }
 }

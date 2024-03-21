@@ -11,22 +11,34 @@ export class CartService {
 
   constructor() {}
 
-  getCart() {
+  getCart(): Product[] {
     return this.productList;
   }
 
   addToCart(product: Product) {
     this.productList.push(product);
-
+    alert(product.pname + ' Has been added to the cart');
     return this.productList;
   }
+  removeProductById(productId: number): void {
+    const product = this.productList.find((p) => p.id === productId);
 
+    this.productList = this.productList.filter((p) => p.id !== productId);
+
+    if (product && this.selectedAmount[productId]) {
+      this.price -= this.selectedAmount[productId] * product.price;
+
+      delete this.selectedAmount[productId];
+    }
+    console.log(this.productList);
+    console.log(this.price);
+  }
   addAmount(n: number, product: Product) {
     if (!this.selectedAmount[product.id]) {
       this.selectedAmount[product.id] = 0;
     }
 
-    const amountToAdd = parseInt(n.toString());
+    const amountToAdd = parseInt(n.toString()) || 1;
 
     this.selectedAmount[product.id] += amountToAdd;
 

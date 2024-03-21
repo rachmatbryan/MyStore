@@ -3,9 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductPostComponent } from './product-post/product-post.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { NavBarComponent } from './utilities/nav-bar/nav-bar.component';
 import { CommonModule } from '@angular/common';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,6 @@ import { CommonModule } from '@angular/common';
     CheckoutComponent,
     ProductPostComponent,
     ProductListComponent,
-    OrderConfirmationComponent,
     NavBarComponent,
     CommonModule,
   ],
