@@ -11,6 +11,7 @@
         required
         [(ngModel)]="fullName"
         #name="ngModel"
+        (ngModelChange)="onFullNameChange($event)"
       />
     </div>
     <div *ngIf="name.invalid">
@@ -26,6 +27,7 @@
         [(ngModel)]="address"
         required
         #location="ngModel"
+        (ngModelChange)="onAddressChange($event)"
       />
     </div>
     <div *ngIf="location.invalid">
@@ -45,6 +47,7 @@
         placeholder="(16 Digit number).."
         [(ngModel)]="creditCard"
         #credit="ngModel"
+        (ngModelChange)="onCreditCardChange($event)"
       />
     </div>
     <div *ngIf="credit.invalid">

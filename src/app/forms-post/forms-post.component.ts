@@ -37,4 +37,14 @@ export class FormsPostComponent implements OnInit {
     this.creditCard = '';
     this.router.navigate(['/checkout']);
   }
+
+  onCreditCardChange(cc: string) {
+    console.log(cc);
+  }
+  onAddressChange(a: string) {
+    console.log(a);
+  }
+  onFullNameChange(f: string) {
+    console.log(f);
+  }
 }
