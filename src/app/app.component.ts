@@ -6,6 +6,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { NavBarComponent } from './utilities/nav-bar/nav-bar.component';
 import { CommonModule } from '@angular/common';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductListComponent,
     NavBarComponent,
     CommonModule,
+    HttpClientModule,
   ],
 })
 export class AppComponent {

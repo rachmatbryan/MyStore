@@ -5,11 +5,12 @@ import { Product } from '../models/Product';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../service/cart.service';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule, HttpClientModule],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
 })
@@ -33,15 +34,7 @@ export class ProductDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductService,
     private cartService: CartService
-  ) {
-    this.product = {
-      id: 1,
-      pname: '',
-      price: 1,
-      url: '',
-      description: '',
-    };
-  }
+  ) {}
 
   ngOnInit(): void {
     const productId = +this.route.snapshot.params['id'];
