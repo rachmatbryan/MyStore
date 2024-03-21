@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
   imports: [CommonModule, ProductPostComponent, FlexLayoutModule, FormsModule],
+  providers: [ProductService],
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
@@ -22,7 +23,15 @@ export class ProductListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe({
+      next: (data) => {
+        this.products = data;
+        console.log(data);
+      },
+      error: (err) => {
+        console.error('Failed to load products', err);
+      },
+    });
   }
   addToCart(p: Product): void {
     this.cartService.addToCart(p);

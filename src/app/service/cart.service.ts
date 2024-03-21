@@ -17,6 +17,10 @@ export class CartService {
 
   addToCart(product: Product) {
     this.productList.push(product);
+    console.log(
+      product.pname + product.id + product.description,
+      product.price
+    );
     alert(product.pname + ' Has been added to the cart');
     return this.productList;
   }

@@ -11,6 +11,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   selector: 'app-product-detail',
   standalone: true,
   imports: [RouterModule, CommonModule, FormsModule, HttpClientModule],
+  providers: [ProductService],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
 })
@@ -22,13 +23,7 @@ export class ProductDetailComponent implements OnInit {
     url: '',
     description: '',
   };
-  product: Product = {
-    id: 0,
-    pname: '',
-    price: 0,
-    url: '',
-    description: '',
-  };
+
   amount: number = 0;
   constructor(
     private route: ActivatedRoute,
@@ -38,11 +33,21 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const productId = +this.route.snapshot.params['id'];
-    this.item = this.productService.getProductById(productId);
-    console.log(this.item);
+    if (productId) {
+      this.productService.getProductById(productId).subscribe({
+        next: (data) => {
+          this.item = data;
+        },
+        error: (err) => {
+          console.error('Failed to load product', err);
+        },
+      });
+    }
   }
   submitForm(): void {
-    this.cartService.addToCart(this.item);
-    this.cartService.addAmount(this.amount, this.item);
+    if (this.item) {
+      this.cartService.addToCart(this.item);
+      this.cartService.addAmount(this.amount, this.item);
+    }
   }
 }
