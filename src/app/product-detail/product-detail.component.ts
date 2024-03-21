@@ -14,10 +14,21 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './product-detail.component.css',
 })
 export class ProductDetailComponent implements OnInit {
-  item: Product | undefined;
-  @Input() product: Product;
-  @Input() amount: number = 0;
-  @Output() marked = new EventEmitter();
+  item: Product = {
+    id: 0,
+    pname: '',
+    price: 0,
+    url: '',
+    description: '',
+  };
+  product: Product = {
+    id: 0,
+    pname: '',
+    price: 0,
+    url: '',
+    description: '',
+  };
+  amount: number = 0;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -35,6 +46,10 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     const productId = +this.route.snapshot.params['id'];
     this.item = this.productService.getProductById(productId);
+    console.log(this.item);
   }
-  submitForm(): void {}
+  submitForm(): void {
+    this.cartService.addToCart(this.item);
+    this.cartService.addAmount(this.amount, this.item);
+  }
 }

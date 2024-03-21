@@ -55,7 +55,11 @@ export class ProductService {
     return this.products;
   }
 
-  getProductById(id: number): Product | undefined {
-    return this.products.find((product) => product.id === id);
+  getProductById(id: number): Product {
+    const product = this.products.find((product) => product.id === id);
+    if (!product) {
+      throw new Error(`Product with id ${id} not found.`);
+    }
+    return product;
   }
 }

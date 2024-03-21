@@ -46,6 +46,7 @@ export class CartService {
 
     this.price += product.price * quantity;
     console.log(this.selectedAmount);
+    console.log(this.productList);
   }
 
   getAmount(): { [key: number]: number } {
